@@ -10,7 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-estado-list',
-  imports: [NgFor, RouterLink, MatToolbarModule, MatIconModule, MatButtonModule, MatTableModule],
+  imports: [RouterLink, MatToolbarModule, MatIconModule, MatButtonModule, MatTableModule],
   templateUrl: './estado-list.component.html',
   styleUrl: './estado-list.component.css'
 })
