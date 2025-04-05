@@ -1,0 +1,18 @@
+<mat-drawer-container class="container">
+
+    <mat-drawer #drawer mode="side" opened>
+        <mat-toolbar>
+            <span>Menu</span>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item>Home</mat-list-item>
+            <mat-list-item routerLink="/admin/estados">Cadastro de Estados</mat-list-item>
+            <mat-list-item routerLink="/admin/municipios">Cadastro de Município</mat-list-item>
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+
+</mat-drawer-container>
