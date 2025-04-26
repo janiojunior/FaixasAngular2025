@@ -1,0 +1,23 @@
+<div class="container responsive-grid">
+    <mat-card *ngFor="let card of cards()" >
+    
+        <img mat-card-xl-image class="centered-image" [src]="card.imageUrl" />
+
+        <mat-card-title class="centered-text">{{card.title}} </mat-card-title>
+        
+        <mat-card-content class="centered-text">{{card.preco}}</mat-card-content>
+
+        <mat-card-actions class="centered-text">
+            <button mat-button color="primary">Ver mais ...</button>
+        </mat-card-actions>
+
+        <mat-card-footer class="centered-text">
+            <button 
+                mat-flat-button color="accent"
+                style="width: 100%; padding: 16px;">
+                Adicionar ao Carrinho
+            </button>
+        </mat-card-footer>
+
+    </mat-card>
+</div>
