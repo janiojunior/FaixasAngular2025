@@ -7,6 +7,9 @@ import { MunicipioListComponent } from './components/municipio/municipio-list/mu
 import { MunicipioFormComponent } from './components/municipio/municipio-form/municipio-form.component';
 import { UserTemplateComponent } from './components/template/user-template/user-template.component';
 import { FaixaCardListComponent } from './components/faixa/faixa-card-list/faixa-card-list.component';
+import { FaixaListComponent } from './components/faixa/faixa-list/faixa-list.component';
+import { FaixaFormComponent } from './components/faixa/faixa-form/faixa-form.component';
+import { faixaResolver } from './components/faixa/estado.resolver';
 
 export const routes: Routes = [
     {
@@ -30,6 +33,11 @@ export const routes: Routes = [
             {path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'},
             {path: 'estados/edit/:id', component: EstadoFormComponent, 
                 title: 'Edição de Estado', resolve: {estado: estadoResolver}},
+
+            {path: 'faixas', component: FaixaListComponent, title: 'Lista de Faixas'},
+            {path: 'faixas/new', component: FaixaFormComponent, title: 'Nova Faixa'},
+            {path: 'faixas/edit/:id', component: FaixaFormComponent, 
+                title: 'Edição de Faixa', resolve: {faixa: faixaResolver}},
 
             {path: 'municipios', component: MunicipioListComponent, title: 'Lista de Municípios'},
             {path: 'municipios/new', component: MunicipioFormComponent, title: 'Novo Município'},
