@@ -10,6 +10,7 @@ import { FaixaCardListComponent } from './components/faixa/faixa-card-list/faixa
 import { FaixaListComponent } from './components/faixa/faixa-list/faixa-list.component';
 import { FaixaFormComponent } from './components/faixa/faixa-form/faixa-form.component';
 import { faixaResolver } from './components/faixa/estado.resolver';
+import { LoginComponent } from './components/login/login.component';
 
 export const routes: Routes = [
     {

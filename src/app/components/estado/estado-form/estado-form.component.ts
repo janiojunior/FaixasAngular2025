@@ -55,7 +55,7 @@ export class EstadoFormComponent {
 
       operacao.subscribe({
         next: () => {
-          this.router.navigateByUrl('/estados');
+          this.router.navigateByUrl('/admin/estados');
         },
         error: (errorResponse) => {
           console.log('Erro ao gravar' + JSON.stringify(errorResponse));
@@ -87,7 +87,7 @@ export class EstadoFormComponent {
     if(estado.id != null) {
       this.estadoService.delete(estado).subscribe({
         next: () => {
-          this.router.navigateByUrl('/estados');
+          this.router.navigateByUrl('/admin/estados');
         },
         error: (errorResponse) => {
           console.log('Erro ao excluir' + JSON.stringify(errorResponse));
