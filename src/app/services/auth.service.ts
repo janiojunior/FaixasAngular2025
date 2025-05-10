@@ -24,35 +24,77 @@ export class AuthService {
   }
 
   private initUsuarioLogado() {
+    const usuario = this.localStorageService.getItem(this.usuarioLogadoKey);
+    if (usuario) {
+      const usuarioLogado = JSON.parse(usuario);
+
+      this.setUsuarioLogado(usuarioLogado);
+      this.usuarioLogadoSubject.next(usuarioLogado);
+    }
 
   }
 
+  loginADM(login: string, senha: string): Observable<any> {
+    const params = {
+      login: login,
+      senha: senha
+    }
 
-  // loginADM(login: string, senha: string): Observable<any> {
+    return this.http.post(`${this.baseURL}`, params, {observe: 'response'}).pipe (
+      tap((res: any) => {
+        const authToken = res.headers.get('Authorization') ?? '';
+        if (authToken) {
+          this.setToken(authToken);
+          const usuarioLogado = res.body;
 
-  // }
+          if (usuarioLogado) {
+            this.setUsuarioLogado(usuarioLogado);
+            this.usuarioLogadoSubject.next(usuarioLogado);
+          }
+        }
+      })
+    )
+
+  }
 
   setUsuarioLogado(usuario: Usuario): void {
+    this.localStorageService.setItem(this.usuarioLogadoKey, usuario);
   }
 
   setToken(token: string): void {
+    this.localStorageService.setItem(this.tokenKey, token);
   }
 
   getUsuarioLogado() {
+    return this.usuarioLogadoSubject.asObservable();
   }
 
   getToken(): string | null {
-    return null;
+    return this.localStorageService.getItem(this.tokenKey);
   }
 
   removeToken(): void {
+    this.localStorageService.removeItem(this.tokenKey);
   }
 
   removeUsuarioLogado(): void {
+    this.localStorageService.removeItem(this.usuarioLogadoKey);
+    this.usuarioLogadoSubject.next(null);
   }
 
   isTokenExpired(): boolean {
-    return false;
+    const token = this.getToken();
+    if (!token) {
+      return true;
+    }
+
+    try {
+      return this.jwtHelper.isTokenExpired(token);
+    } catch (error) {
+      console.error("Token inválido", error);
+      return true;
+    }
+
   }
 
 }

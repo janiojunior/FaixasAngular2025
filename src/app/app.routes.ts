@@ -30,6 +30,8 @@ export const routes: Routes = [
         children: [
             {path: '', pathMatch: 'full', redirectTo: 'estados'},
 
+            {path: 'login', component: LoginComponent, title: 'Login'},
+
             {path: 'estados', component: EstadoListComponent, title: 'Lista de Estados'},
             {path: 'estados/new', component: EstadoFormComponent, title: 'Novo Estado'},
             {path: 'estados/edit/:id', component: EstadoFormComponent, 

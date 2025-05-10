@@ -21,17 +21,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-
+    this.subscription.unsubscribe();
   }
+
   ngOnInit(): void {
-
+    this.obterUsuarioLogado();
   }
-  obterUsuarioLogado() {
 
+  obterUsuarioLogado() {
+    this.subscription.add(this.authService.getUsuarioLogado().subscribe(
+      usuario => this.usuarioLogado = usuario
+    ));
   }
 
   deslogar() {
-
+    this.authService.removeToken();
+    this.authService.removeUsuarioLogado();
   }
 
   clickMenu() {

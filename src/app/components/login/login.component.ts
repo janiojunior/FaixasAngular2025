@@ -40,6 +40,16 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const username = this.loginForm.get('username')!.value;
       const password = this.loginForm.get('password')!.value;
+
+      this.authService.loginADM(username, password).subscribe({
+        next: (resp) => {
+          this.router.navigateByUrl('/admin');
+        },
+        error: (err) => {
+          console.log(err);
+          this.showSnackbarTopPosition("Dados Inválidos", 'Fechar', 2000);
+        }
+      });
       
     } else {
       this.showSnackbarTopPosition("Dados inválidos", 'Fechar', 2000);
