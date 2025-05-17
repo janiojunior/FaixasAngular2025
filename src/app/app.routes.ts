@@ -11,6 +11,7 @@ import { FaixaListComponent } from './components/faixa/faixa-list/faixa-list.com
 import { FaixaFormComponent } from './components/faixa/faixa-form/faixa-form.component';
 import { faixaResolver } from './components/faixa/estado.resolver';
 import { LoginComponent } from './components/login/login.component';
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
 
 export const routes: Routes = [
     {
@@ -21,6 +22,7 @@ export const routes: Routes = [
             {path: '', pathMatch: 'full', redirectTo: 'faixas'},
 
             {path: 'faixas', component: FaixaCardListComponent, title: 'Card de Faixas'},
+            {path: 'carrinho', component: CarrinhoComponent, title: 'Carrinho'},
         ]
     }, 
     {

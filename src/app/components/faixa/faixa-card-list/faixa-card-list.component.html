@@ -1,9 +1,9 @@
 <div class="container responsive-grid">
     <mat-card *ngFor="let card of cards()" >
     
-        <img mat-card-xl-image class="centered-image" [src]="card.imageUrl" />
+        <img mat-card-xl-image class="centered-image" [src]="card.imagemUrl" />
 
-        <mat-card-title class="centered-text">{{card.title}} </mat-card-title>
+        <mat-card-title class="centered-text">{{card.titulo}} </mat-card-title>
         
         <mat-card-content class="centered-text">{{card.preco}}</mat-card-content>
 
@@ -13,6 +13,7 @@
 
         <mat-card-footer class="centered-text">
             <button 
+                (click)="adicionarAoCarrinho(card)"
                 mat-flat-button color="accent"
                 style="width: 100%; padding: 16px;">
                 Adicionar ao Carrinho
