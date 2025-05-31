@@ -26,7 +26,9 @@ export class AuthService {
   private initUsuarioLogado() {
     const usuario = this.localStorageService.getItem(this.usuarioLogadoKey);
     if (usuario) {
-      const usuarioLogado = JSON.parse(usuario);
+      //const usuarioLogado = JSON.parse(usuario);
+      const usuarioLogado = usuario;
+
 
       this.setUsuarioLogado(usuarioLogado);
       this.usuarioLogadoSubject.next(usuarioLogado);
@@ -85,6 +87,7 @@ export class AuthService {
   isTokenExpired(): boolean {
     const token = this.getToken();
     if (!token) {
+      console.log(true);
       return true;
     }
 

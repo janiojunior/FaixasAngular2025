@@ -12,6 +12,7 @@ import { FaixaFormComponent } from './components/faixa/faixa-form/faixa-form.com
 import { faixaResolver } from './components/faixa/estado.resolver';
 import { LoginComponent } from './components/login/login.component';
 import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     {
