@@ -30,6 +30,7 @@ export const routes: Routes = [
         path: 'admin',
         component: AdminTemplateComponent,
         title: 'Administrativo',
+        canActivate: [authGuard],
         children: [
             {path: '', pathMatch: 'full', redirectTo: 'estados'},
 

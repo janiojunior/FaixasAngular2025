@@ -11,7 +11,7 @@ export const errorInterceptor: HttpInterceptorFn = (request, next) => {
   return next(request).pipe(
     catchError((error: HttpErrorResponse) => {
       
-      if (error.status == 401) {
+      if (error.status == 401 || error.status == 403) {
         router.navigate(['/admin/login']);
       }
       return throwError(() => error);
